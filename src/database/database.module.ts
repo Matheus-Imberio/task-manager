@@ -1,8 +1,11 @@
-import { Module } from '@nestjs/common';
-import { KyselyProvider } from './database.provider';
+import { Global, Module } from '@nestjs/common';
+import { kyselyProvider } from './database.provider';
+import { ConfigModule } from '@nestjs/config';
 
+@Global()
 @Module({
-  providers: [KyselyProvider],
-  exports: [KyselyProvider],
+  imports: [ConfigModule],
+  providers: [kyselyProvider],
+  exports: [kyselyProvider],
 })
 export class DatabaseModule {}
