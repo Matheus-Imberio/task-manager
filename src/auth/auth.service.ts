@@ -8,10 +8,14 @@ import * as bcrypt from 'bcrypt';
 import { UsersService } from 'src/users/users.service';
 import { randomUUID } from 'node:crypto';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
+  ) {}
 
   async signUp(createUserDto: CreateUserDto) {
     const saltOrRounds = 10;
@@ -40,6 +44,9 @@ export class AuthService {
     if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid password');
     }
-    return user;
+    const payload = { sub: user.id };
+    return {
+      access_token: await this.jwtService.signAsync(payload),
+    };
   }
 }
