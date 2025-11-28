@@ -434,21 +434,7 @@ O projeto segue a arquitetura modular do NestJS:
 
 ## 📝 Licença
 
-Este projeto está sob a licença UNLICENSED.
-
----
-
-## 👨‍💻 Autor
-
-Desenvolvido com ❤️ usando NestJS e TypeScript
-
----
-
-## 🙏 Agradecimentos
-
-- [NestJS](https://nestjs.com/) pela excelente framework
-- [Kysely](https://kysely.dev/) pelo query builder type-safe
-- Comunidade open source
+Este projeto está sob a licença MIT.
 
 ---
 
