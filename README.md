@@ -1,98 +1,459 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📋 Task Manager API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<div align="center">
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-## Description
+**Uma API RESTful moderna para gerenciamento de tarefas com autenticação JWT**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Features](#-features) • [Tecnologias](#-tecnologias) • [Instalação](#-instalação) • [Uso](#-uso) • [API](#-api)
 
-## Project setup
+</div>
 
+---
+
+## 📖 Sobre o Projeto
+
+Task Manager é uma API RESTful completa desenvolvida com **NestJS** e **TypeScript** para gerenciamento de tarefas pessoais. O projeto implementa autenticação JWT, criptografia de senhas com bcrypt, e integração com PostgreSQL usando Kysely como query builder type-safe.
+
+### ✨ Destaques
+
+- 🔐 **Autenticação JWT** completa com guards personalizados
+- 🔒 **Criptografia de senhas** com bcrypt
+- 📊 **Type-safe database queries** com Kysely
+- 🐳 **Docker Compose** para ambiente de desenvolvimento
+- 🎯 **Arquitetura modular** seguindo padrões NestJS
+- 📝 **Sistema de migrations** para versionamento do banco
+- 🎁 **Dicas motivacionais** integradas via API externa
+
+---
+
+## 🚀 Features
+
+- ✅ **Autenticação e Autorização**
+  - Registro de usuários
+  - Login com JWT
+  - Proteção de rotas com Guards
+  - Validação de tokens
+
+- 📝 **Gerenciamento de Tarefas**
+  - Criar, listar, atualizar e deletar tarefas
+  - Status de tarefas (pending, in-progress, done)
+  - Tarefas vinculadas ao usuário autenticado
+  - Dicas motivacionais automáticas
+
+- 🗄️ **Banco de Dados**
+  - PostgreSQL com Docker
+  - Migrations versionadas
+  - Queries type-safe com Kysely
+  - Relacionamentos entre tabelas
+
+- 🛠️ **Developer Experience**
+  - TypeScript para type safety
+  - ESLint e Prettier configurados
+  - Hot reload em desenvolvimento
+  - Interceptors para transformação de dados
+
+---
+
+## 🛠️ Tecnologias
+
+### Backend
+- **[NestJS](https://nestjs.com/)** - Framework Node.js progressivo
+- **[TypeScript](https://www.typescriptlang.org/)** - Superset JavaScript com tipagem estática
+- **[Kysely](https://kysely.dev/)** - Query builder type-safe para TypeScript
+- **[PostgreSQL](https://www.postgresql.org/)** - Banco de dados relacional
+- **[JWT](https://jwt.io/)** - Autenticação baseada em tokens
+- **[bcrypt](https://www.npmjs.com/package/bcrypt)** - Criptografia de senhas
+- **[Passport](http://www.passportjs.org/)** - Middleware de autenticação
+
+### Ferramentas
+- **[Docker](https://www.docker.com/)** - Containerização
+- **[Docker Compose](https://docs.docker.com/compose/)** - Orquestração de containers
+- **[pnpm](https://pnpm.io/)** - Gerenciador de pacotes
+- **[ESLint](https://eslint.org/)** - Linter JavaScript/TypeScript
+- **[Prettier](https://prettier.io/)** - Formatador de código
+
+---
+
+## 📦 Instalação
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (v18 ou superior)
+- [pnpm](https://pnpm.io/) instalado globalmente
+- [Docker](https://www.docker.com/) e Docker Compose
+
+### Passo a passo
+
+1. **Clone o repositório**
 ```bash
-$ pnpm install
+git clone <repository-url>
+cd task-manager
 ```
 
-## Compile and run the project
-
+2. **Instale as dependências**
 ```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+pnpm install
 ```
 
-## Run tests
-
+3. **Configure as variáveis de ambiente**
 ```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
+cp .env.example .env
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+Edite o arquivo `.env` com suas configurações:
+```env
+DATABASE_URL=postgresql://postgres:postgres@localhost:5433/task_manager
+SECRET_KEY=sua-chave-secreta-super-segura-aqui
+PORT=3000
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+4. **Inicie o banco de dados com Docker**
+```bash
+docker-compose up -d
+```
 
-## Resources
+5. **Execute as migrations**
+```bash
+pnpm run migrate
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+6. **Inicie o servidor de desenvolvimento**
+```bash
+pnpm run start:dev
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+A API estará disponível em `http://localhost:3000`
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 🎯 Uso
 
-## Stay in touch
+### Autenticação
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### 1. Registrar um novo usuário
+```http
+POST /users/sign-up
+Content-Type: application/json
 
-## License
+{
+  "name": "João Silva",
+  "email": "joao@example.com",
+  "password": "senha123"
+}
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+**Resposta:**
+```json
+{
+  "id": "uuid-do-usuario",
+  "name": "João Silva",
+  "email": "joao@example.com",
+  "createdAt": "2025-11-28T10:00:00.000Z"
+}
+```
+
+#### 2. Fazer login
+```http
+POST /users/sign-in
+Content-Type: application/json
+
+{
+  "email": "joao@example.com",
+  "password": "senha123"
+}
+```
+
+**Resposta:**
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+
+### Tarefas
+
+Todas as rotas de tarefas requerem autenticação. Inclua o token no header:
+
+```http
+Authorization: Bearer <seu-token-jwt>
+```
+
+#### Criar uma tarefa
+```http
+POST /tasks
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "id": "uuid-da-tarefa",
+  "title": "Implementar feature X",
+  "description": "Descrição detalhada da tarefa",
+  "status": "pending"
+}
+```
+
+#### Listar todas as tarefas do usuário
+```http
+GET /tasks
+Authorization: Bearer <token>
+```
+
+#### Buscar uma tarefa específica
+```http
+GET /tasks/:id
+Authorization: Bearer <token>
+```
+
+#### Atualizar uma tarefa
+```http
+PATCH /tasks/:id
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "title": "Título atualizado",
+  "status": "in-progress"
+}
+```
+
+#### Deletar uma tarefa
+```http
+DELETE /tasks/:id
+Authorization: Bearer <token>
+```
+
+---
+
+## 📚 Estrutura do Projeto
+
+```
+task-manager/
+├── src/
+│   ├── auth/              # Módulo de autenticação
+│   │   ├── auth.controller.ts
+│   │   ├── auth.service.ts
+│   │   ├── auth.guard.ts
+│   │   └── auth.module.ts
+│   ├── users/              # Módulo de usuários
+│   │   ├── users.controller.ts
+│   │   ├── users.service.ts
+│   │   └── users.module.ts
+│   ├── tasks/              # Módulo de tarefas
+│   │   ├── tasks.controller.ts
+│   │   ├── tasks.service.ts
+│   │   ├── tasks.module.ts
+│   │   └── dto/
+│   ├── database/           # Configuração do banco
+│   │   ├── database.module.ts
+│   │   ├── database.provider.ts
+│   │   ├── database.schema.ts
+│   │   └── migrate.ts
+│   ├── common/             # Utilitários compartilhados
+│   │   └── interceptors/
+│   │       └── bigint.interceptor.ts
+│   ├── app.module.ts       # Módulo raiz
+│   └── main.ts             # Entry point
+├── migrations/             # SQL migrations
+│   └── 001_initial_schema.sql
+├── docker-compose.yml      # Configuração Docker
+├── package.json
+└── README.md
+```
+
+---
+
+## 🔌 API Endpoints
+
+### Autenticação
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| POST | `/users/sign-up` | Registrar novo usuário | ❌ |
+| POST | `/users/sign-in` | Fazer login | ❌ |
+
+### Tarefas
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| POST | `/tasks` | Criar nova tarefa | ✅ |
+| GET | `/tasks` | Listar tarefas do usuário | ✅ |
+| GET | `/tasks/:id` | Buscar tarefa específica | ✅ |
+| PATCH | `/tasks/:id` | Atualizar tarefa | ✅ |
+| DELETE | `/tasks/:id` | Deletar tarefa | ✅ |
+
+### Usuários
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| GET | `/users/:id` | Buscar usuário por ID | ❌ |
+
+---
+
+## 🗄️ Banco de Dados
+
+### Schema
+
+#### Tabela `users`
+- `id` (UUID) - Primary Key
+- `name` (VARCHAR) - Nome do usuário
+- `email` (VARCHAR) - Email único
+- `password` (VARCHAR) - Senha criptografada
+- `createdAt` (TIMESTAMP) - Data de criação
+
+#### Tabela `tasks`
+- `id` (UUID) - Primary Key
+- `title` (VARCHAR) - Título da tarefa
+- `description` (TEXT) - Descrição opcional
+- `status` (VARCHAR) - Status: 'pending', 'in-progress', 'done'
+- `tip` (TEXT) - Dica motivacional
+- `created_at` (TIMESTAMP) - Data de criação
+- `updated_at` (TIMESTAMP) - Data de atualização
+- `user_id` (UUID) - Foreign Key para users
+
+### Migrations
+
+Execute as migrations com:
+```bash
+pnpm run migrate
+```
+
+---
+
+## 🔧 Scripts Disponíveis
+
+```bash
+# Desenvolvimento
+pnpm run start:dev      # Inicia com hot reload
+pnpm run start:debug    # Inicia em modo debug
+
+# Produção
+pnpm run build          # Compila o projeto
+pnpm run start:prod     # Inicia em produção
+
+# Qualidade de código
+pnpm run lint           # Executa o linter
+pnpm run format         # Formata o código
+
+# Testes
+pnpm run test           # Executa testes unitários
+pnpm run test:watch     # Executa testes em watch mode
+pnpm run test:cov       # Gera relatório de cobertura
+pnpm run test:e2e       # Executa testes end-to-end
+
+# Banco de dados
+pnpm run migrate        # Executa migrations
+```
+
+---
+
+## 🔐 Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+# Database
+DATABASE_URL=postgresql://postgres:postgres@localhost:5433/task_manager
+
+# JWT
+SECRET_KEY=sua-chave-secreta-super-segura-aqui
+
+# Server
+PORT=3000
+```
+
+**⚠️ Importante:** Nunca commite o arquivo `.env` no repositório!
+
+---
+
+## 🧪 Testes
+
+```bash
+# Executar todos os testes
+pnpm run test
+
+# Executar testes em watch mode
+pnpm run test:watch
+
+# Executar testes com cobertura
+pnpm run test:cov
+
+# Executar testes e2e
+pnpm run test:e2e
+```
+
+---
+
+## 🐳 Docker
+
+### Iniciar o banco de dados
+```bash
+docker-compose up -d
+```
+
+### Parar o banco de dados
+```bash
+docker-compose down
+```
+
+### Ver logs do banco
+```bash
+docker-compose logs -f postgres
+```
+
+### Acessar o banco via psql
+```bash
+docker exec -it task-manager-postgres psql -U postgres -d task_manager
+```
+
+---
+
+## 🏗️ Arquitetura
+
+O projeto segue a arquitetura modular do NestJS:
+
+- **Módulos**: Organizam funcionalidades relacionadas
+- **Controllers**: Lidam com requisições HTTP
+- **Services**: Contêm a lógica de negócio
+- **Guards**: Protegem rotas e validam autenticação
+- **Interceptors**: Transformam dados de requisições/respostas
+- **DTOs**: Validam e tipam dados de entrada
+
+### Fluxo de Autenticação
+
+1. Usuário faz login → `AuthService` valida credenciais
+2. JWT token é gerado → Retornado ao cliente
+3. Cliente envia token → `AuthGuard` valida token
+4. Token válido → Usuário autenticado, acesso permitido
+
+---
+
+## 📝 Licença
+
+Este projeto está sob a licença UNLICENSED.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido com ❤️ usando NestJS e TypeScript
+
+---
+
+## 🙏 Agradecimentos
+
+- [NestJS](https://nestjs.com/) pela excelente framework
+- [Kysely](https://kysely.dev/) pelo query builder type-safe
+- Comunidade open source
+
+---
+
+<div align="center">
+
+**⭐ Se este projeto foi útil, considere dar uma estrela! ⭐**
+
+</div>
