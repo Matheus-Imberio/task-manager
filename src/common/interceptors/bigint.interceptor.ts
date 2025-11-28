@@ -1,3 +1,4 @@
+// src/common/interceptors/bigint.interceptor.ts
 import {
   Injectable,
   NestInterceptor,
@@ -25,6 +26,11 @@ export class BigIntInterceptor implements NestInterceptor {
 
     if (typeof obj === 'bigint') {
       return obj.toString();
+    }
+
+    // Converter objetos Date para string ISO
+    if (obj instanceof Date) {
+      return obj.toISOString();
     }
 
     if (Array.isArray(obj)) {
